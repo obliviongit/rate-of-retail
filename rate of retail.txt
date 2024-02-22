@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        System.out.print("Enter the rate of retail inflation (in percentage): ");
+        double inflationRate = scanner.nextDouble() / 100;
+
+        
+        System.out.print("Enter the number of years: ");
+        int numberOfYears = scanner.nextInt();
+
+        
+        double compoundedInflation = calculateCompoundedInflation(inflationRate, numberOfYears);
+
+        
+        System.out.println("Compounded inflation after " + numberOfYears + " years: " + compoundedInflation);
+
+        scanner.close();
+    }
+
+    
+    public static double calculateCompoundedInflation(double inflationRate, int numberOfYears) {
+        double compoundedInflation = Math.pow(1 + inflationRate, numberOfYears);
+        return compoundedInflation;
+    }
+}
